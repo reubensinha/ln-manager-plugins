@@ -2,6 +2,12 @@
 
 Default Plugin Repository for LN Manager
 
+## Add Repo
+
+```
+https://raw.githubusercontent.com/reubensinha/ln-manager-plugins/main/index.json
+```
+
 ## Plugins
 
 - List of Plugins
@@ -20,5 +26,3 @@ L src
     L frontend (optional)
         L ...
 ```
-
-
