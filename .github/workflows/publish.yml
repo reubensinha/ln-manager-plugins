@@ -1,0 +1,97 @@
+name: Publish
+
+# One plugin per release. The tag is "<Plugin>-v<version>", e.g. Torznab-v0.2.0, so a
+# release describes exactly one plugin at exactly one of its own versions - there is no
+# repository-wide version to keep in step with six independent ones.
+#
+# The release is created before the manifest is committed, deliberately: the app reads
+# index.json straight off the default branch, so publishing a manifest whose URL is not
+# live yet would hand it a catalog pointing at a 404.
+on:
+  push:
+    tags: ["*-v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing tag to publish, e.g. Torznab-v0.2.0"
+        required: true
+
+# Several plugins can be tagged at once, and each run commits to the default branch.
+# Serialising them keeps those commits from racing each other.
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.tag || github.ref }}
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - run: pip install pyyaml
+
+      - name: Read the plugin and version out of the tag
+        id: tag
+        run: |
+          TAG="${{ inputs.tag || github.ref_name }}"
+          case "$TAG" in
+            *-v*) ;;
+            *) echo "::error::tag '$TAG' is not <Plugin>-v<version>"; exit 1 ;;
+          esac
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "plugin=${TAG%-v*}" >> "$GITHUB_OUTPUT"
+          echo "version=${TAG##*-v}" >> "$GITHUB_OUTPUT"
+
+      - name: Package that plugin
+        run: |
+          python tools/build_lna.py \
+            --plugin "${{ steps.tag.outputs.plugin }}" --dist dist
+
+      - name: Check the tag matches the version in the manifest
+        # Without this, tagging a version you forgot to bump would publish a release
+        # whose name disagrees with the manifest inside the artifact it carries.
+        run: |
+          VERSION="${{ steps.tag.outputs.version }}"
+          if ! ls dist | grep -qE -- "-${VERSION}\.lna$"; then
+            echo "::error::tag says version ${VERSION}, but the built artifact is $(ls dist)."
+            echo "::error::Bump version in <Plugin>/src/manifest.yaml, or retag."
+            exit 1
+          fi
+
+      - name: Publish the release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          files: dist/*.lna
+
+      - name: Record it in the plugin's manifest and rebuild the index
+        run: |
+          git fetch origin "${{ github.event.repository.default_branch }}"
+          git checkout -B "${{ github.event.repository.default_branch }}" \
+            "origin/${{ github.event.repository.default_branch }}"
+          python tools/build_index.py \
+            --root . \
+            --dist dist \
+            --plugin "${{ steps.tag.outputs.plugin }}" \
+            --repo "${{ github.repository }}" \
+            --tag "${{ steps.tag.outputs.tag }}" \
+            --branch "${{ github.event.repository.default_branch }}"
+
+      - name: Commit it
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.json ./*/manifest.json
+          git diff --cached --quiet && echo "nothing changed" && exit 0
+          git commit -m "chore: publish ${{ steps.tag.outputs.tag }}"
+          git push origin HEAD:"${{ github.event.repository.default_branch }}"

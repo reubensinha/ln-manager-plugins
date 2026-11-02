@@ -1,0 +1,7 @@
+uid: 8dbeae4e-aa07-45ac-bcd4-41a93d911bd2
+name: AutomatedPipeline
+version: 0.1.0
+description: Automated pipeline for RSS feed processing and download automation
+author: Reuben Sinha
+entry_point: AutomatedPipePlugin:AutomatedPipe
+dependencies: []

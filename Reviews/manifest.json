@@ -1,0 +1,13 @@
+{
+  "uid": "7e919b73-79da-49c5-88e5-efcd487df1d2",
+  "name": "Reviews",
+  "author": "Reuben Sinha",
+  "description": "Shows community reviews for a series, sourced from AniList",
+  "versions": [
+    {
+      "version": "0.1.0",
+      "url": "https://github.com/reubensinha/ln-manager-plugins/releases/download/Reviews-v0.1.0/Reviews-0.1.0.lna",
+      "sha256": "3c3ff0e4a8745155f2d10dee919fb35c097e75063e14af089ef99849418c215c"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+uid: 7e919b73-79da-49c5-88e5-efcd487df1d2
+name: Reviews
+version: 0.1.0
+description: Shows community reviews for a series, sourced from AniList
+author: Reuben Sinha
+entry_point: reviews:ReviewsPlugin
+dependencies: []

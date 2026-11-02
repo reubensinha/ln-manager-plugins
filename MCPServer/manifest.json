@@ -1,0 +1,13 @@
+{
+  "uid": "9a5c21c1-f02d-4be6-b768-f7160cce3ad5",
+  "name": "MCPServer",
+  "author": "Reuben Sinha",
+  "description": "Exposes the library over the Model Context Protocol (read-only)",
+  "versions": [
+    {
+      "version": "0.1.0",
+      "url": "https://github.com/reubensinha/ln-manager-plugins/releases/download/MCPServer-v0.1.0/MCPServer-0.1.0.lna",
+      "sha256": "58c0e6e54ea5c5dd3c8f367f93b3b057dda334267d74b667a6c3fd0f02db92f1"
+    }
+  ]
+}

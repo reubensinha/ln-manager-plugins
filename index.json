@@ -1,0 +1,35 @@
+{
+  "name": "LN-Manager Plugins",
+  "plugins": [
+    {
+      "uid": "8dbeae4e-aa07-45ac-bcd4-41a93d911bd2",
+      "name": "AutomatedPipeline",
+      "manifest": "https://raw.githubusercontent.com/reubensinha/ln-manager-plugins/main/AutomatedPipe/manifest.json"
+    },
+    {
+      "uid": "9a5c21c1-f02d-4be6-b768-f7160cce3ad5",
+      "name": "MCPServer",
+      "manifest": "https://raw.githubusercontent.com/reubensinha/ln-manager-plugins/main/MCPServer/manifest.json"
+    },
+    {
+      "uid": "9b47811a-209e-4513-9bea-8d9bf9c8fc17",
+      "name": "RanobeDB",
+      "manifest": "https://raw.githubusercontent.com/reubensinha/ln-manager-plugins/main/RanobeDB/manifest.json"
+    },
+    {
+      "uid": "7e919b73-79da-49c5-88e5-efcd487df1d2",
+      "name": "Reviews",
+      "manifest": "https://raw.githubusercontent.com/reubensinha/ln-manager-plugins/main/Reviews/manifest.json"
+    },
+    {
+      "uid": "2bdf6e8b-8820-499e-bc6e-1084d718dc04",
+      "name": "Torznab",
+      "manifest": "https://raw.githubusercontent.com/reubensinha/ln-manager-plugins/main/Torznab/manifest.json"
+    },
+    {
+      "uid": "0b7ac035-2665-4f5a-9fce-9af1ad580bc6",
+      "name": "qBittorrent",
+      "manifest": "https://raw.githubusercontent.com/reubensinha/ln-manager-plugins/main/qBittorrent/manifest.json"
+    }
+  ]
+}

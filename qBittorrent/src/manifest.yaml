@@ -1,0 +1,8 @@
+uid: 0b7ac035-2665-4f5a-9fce-9af1ad580bc6
+name: qBittorrent
+version: 0.1.0
+description: qBittorrent download client plugin
+author: Reuben Sinha
+entry_point: qbittorrent:qBittorrentPlugin
+dependencies:
+  - qbittorrent-api

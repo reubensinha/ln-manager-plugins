@@ -1,0 +1,13 @@
+{
+  "uid": "8dbeae4e-aa07-45ac-bcd4-41a93d911bd2",
+  "name": "AutomatedPipeline",
+  "author": "Reuben Sinha",
+  "description": "Automated pipeline for RSS feed processing and download automation",
+  "versions": [
+    {
+      "version": "0.1.0",
+      "url": "https://github.com/reubensinha/ln-manager-plugins/releases/download/AutomatedPipeline-v0.1.0/AutomatedPipeline-0.1.0.lna",
+      "sha256": "0f3af8c4f332c355fcd7eb7c1203dcdf44c4aad96815c8ee203031313d611989"
+    }
+  ]
+}

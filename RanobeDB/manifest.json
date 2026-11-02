@@ -1,0 +1,13 @@
+{
+  "uid": "9b47811a-209e-4513-9bea-8d9bf9c8fc17",
+  "name": "RanobeDB",
+  "author": "Reuben Sinha",
+  "description": "RanobeDB metadata source plugin",
+  "versions": [
+    {
+      "version": "0.1.1",
+      "url": "https://github.com/reubensinha/ln-manager-plugins/releases/download/RanobeDB-v0.1.1/RanobeDB-0.1.1.lna",
+      "sha256": "49ad2b638b3054442ab18fd09ed3725f356ff04fb0d7c9ee655af16cd454a824"
+    }
+  ]
+}

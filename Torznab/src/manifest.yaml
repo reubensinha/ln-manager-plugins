@@ -1,0 +1,7 @@
+uid: 2bdf6e8b-8820-499e-bc6e-1084d718dc04
+name: Torznab
+version: 0.1.0
+description: Torznab indexer plugin
+author: Reuben Sinha
+entry_point: torznab:TorznabPlugin
+dependencies: []

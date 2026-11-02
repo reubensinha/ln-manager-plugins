@@ -1,0 +1,20 @@
+name: Validate
+
+# Every plugin must package cleanly before a tag is pushed: build_lna.py enforces the
+# required manifest fields, that uid is a UUID and that entry_point carries the colon
+# the loader splits on. Catching that here turns a broken release into a failed check.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - run: pip install pyyaml
+      - run: python tools/build_lna.py --root . --dist dist

@@ -1,0 +1,13 @@
+{
+  "uid": "2bdf6e8b-8820-499e-bc6e-1084d718dc04",
+  "name": "Torznab",
+  "author": "Reuben Sinha",
+  "description": "Torznab indexer plugin",
+  "versions": [
+    {
+      "version": "0.1.0",
+      "url": "https://github.com/reubensinha/ln-manager-plugins/releases/download/Torznab-v0.1.0/Torznab-0.1.0.lna",
+      "sha256": "22bc765fbdb5635e221c8c4162c5be6b1a98f9d9f73859d8467088c96a340b77"
+    }
+  ]
+}

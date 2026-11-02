@@ -1,0 +1,8 @@
+uid: 9a5c21c1-f02d-4be6-b768-f7160cce3ad5
+name: MCPServer
+version: 0.1.0
+description: Exposes the library over the Model Context Protocol (read-only)
+author: Reuben Sinha
+entry_point: mcp_server:MCPServerPlugin
+dependencies:
+  - mcp

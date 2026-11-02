@@ -1,0 +1,13 @@
+{
+  "uid": "0b7ac035-2665-4f5a-9fce-9af1ad580bc6",
+  "name": "qBittorrent",
+  "author": "Reuben Sinha",
+  "description": "qBittorrent download client plugin",
+  "versions": [
+    {
+      "version": "0.1.0",
+      "url": "https://github.com/reubensinha/ln-manager-plugins/releases/download/qBittorrent-v0.1.0/qBittorrent-0.1.0.lna",
+      "sha256": "1827267ba488e7acc5c8219d6757c615f34a2305d2fad99072f300b2ef9289f4"
+    }
+  ]
+}
